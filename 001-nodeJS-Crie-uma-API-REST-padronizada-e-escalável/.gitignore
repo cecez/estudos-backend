@@ -1,0 +1,4 @@
+/node_modules
+/db
+/config/default.json
+/.env
