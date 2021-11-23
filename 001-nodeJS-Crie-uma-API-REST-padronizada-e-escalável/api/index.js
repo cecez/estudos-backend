@@ -5,4 +5,7 @@ const config = require('config')
 
 app.use(bodyParser.json())
 
+const roteador = require('./rotas/fornecedores')
+app.use('/api/fornecedores', roteador)
+
 app.listen(config.get('api.porta'), () => console.log('API rodando na porta ' + config.get('api.porta') + '...'))
