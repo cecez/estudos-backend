@@ -14,6 +14,28 @@ class SendWelcomeEmail implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     /**
+     * The number of seconds to wait before retrying the job.
+     *
+     */
+    public int $backoff = 3;
+
+    /**
+     * The number of seconds the job can run before timing out.
+     *
+     * Timeout para execução do job.
+     * Se worker levar mais tempo, job é morto (killed)
+     *
+     */
+    public int $timeout = 1;
+
+    /**
+     * The number of times the job may be attempted.
+     *
+     * Valor padrão é 1.
+     */
+    public int $tries = -1;
+
+    /**
      * Create a new job instance.
      *
      * @return void
@@ -32,8 +54,24 @@ class SendWelcomeEmail implements ShouldQueue
     {
         info('Iniciando execução do job...');
 
+        // simulando falha
+        throw new \Exception('Teste para falhar job.');
+
         sleep(3);
 
         info('... finalizando execução do job.');
+    }
+
+    /**
+     * Determine the time at which the job should timeout.
+     *
+     * Janela de tempo para retentativas de executar o job.
+     * Se usado, colocar -1 na propriedade $tries.
+     *
+     * @return \DateTime
+     */
+    public function retryUntil(): \DateTime
+    {
+        return now()->addMinutes(1);
     }
 }
