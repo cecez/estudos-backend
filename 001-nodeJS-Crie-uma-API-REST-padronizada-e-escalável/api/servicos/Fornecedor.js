@@ -22,5 +22,9 @@ module.exports =
         }
 
         return resultado
+    },
+
+    remover(id) {
+        return modeloFornecedor.destroy({ where: { id }})
     }
 }

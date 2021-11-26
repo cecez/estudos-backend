@@ -1,8 +1,10 @@
 const { ne } = require('sequelize/dist/lib/operators')
 const servicoFornecedor = require('../servicos/Fornecedor')
 
-class Fornecedor {
-    constructor({id, empresa, email, categoria, dataCriacao, dataAtualizacao, versao}) {
+class Fornecedor 
+{
+    constructor({id, empresa, email, categoria, dataCriacao, dataAtualizacao, versao}) 
+    {
         this.id = id
         this.empresa = empresa
         this.email = email
@@ -12,7 +14,8 @@ class Fornecedor {
         this.versao = versao
     }
 
-    async atualizar() {
+    async atualizar() 
+    {
         await servicoFornecedor.pegarPorId(this.id)
         const camposAtualizaveis = ['empresa', 'email', 'categoria']
         const dadosParaAtualizar = {}
@@ -32,7 +35,8 @@ class Fornecedor {
         await servicoFornecedor.atualizar(this.id, dadosParaAtualizar)
     }
 
-    async carregar() {
+    async carregar() 
+    {
         const resultado = await servicoFornecedor.pegarPorId(this.id)
         
         this.empresa = resultado.empresa
@@ -43,7 +47,9 @@ class Fornecedor {
         this.versao = resultado.versao
     }
 
-    async criar() {
+    async criar() 
+    {
+        this.validar()
         const resultado = await servicoFornecedor.inserir({
             empresa: this.empresa,
             email: this.email,
@@ -54,6 +60,24 @@ class Fornecedor {
         this.dataCriacao = resultado.dataCriacao
         this.dataAtualizacao = resultado.dataAtualizacao
         this.versao = resultado.versao
+    }
+
+    remover() 
+    {
+        return servicoFornecedor.remover(this.id)
+    }
+
+    validar() 
+    {
+        const campos = ['empresa', 'email', 'categoria']
+
+        campos.forEach((campo) => {
+            const valor = this[campo]
+
+            if (typeof valor !== 'string' || valor.length === 0) {
+                throw new Error('O campo ' + campo + ' está inválido.')
+            }
+        })
     }
 }
 

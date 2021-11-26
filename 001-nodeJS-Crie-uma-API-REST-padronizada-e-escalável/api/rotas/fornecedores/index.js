@@ -2,6 +2,18 @@ const roteador = require('express').Router()
 const servico = require('../../servicos/Fornecedor')
 const Fornecedor = require('../../entidades/Fornecedor')
 
+roteador.delete('/:idFornecedor', async (requisicao, resposta) => {
+    try {
+        const idFornecedor = requisicao.params.idFornecedor
+        const fornecedor = new Fornecedor({ id: idFornecedor })
+        await fornecedor.carregar()
+        await fornecedor.remover()
+        resposta.send()
+    } catch (erro) {
+        resposta.send(JSON.stringify({ mensagem: erro.message }))
+    }
+})
+
 roteador.get('/', async (requisicao, resposta) => {
     const resultados = await servico.listar()
     resposta.send(
@@ -24,10 +36,14 @@ roteador.get('/:idFornecedor', async (requisicao, resposta) => {
 })
 
 roteador.post('/', async (requisicao, resposta) => {
-    const dadosRecebidos = requisicao.body
-    const novoFornecedor = new Fornecedor(dadosRecebidos)
-    await novoFornecedor.criar()
-    resposta.send(JSON.stringify(novoFornecedor))
+    try {
+        const dadosRecebidos = requisicao.body
+        const novoFornecedor = new Fornecedor(dadosRecebidos)
+        await novoFornecedor.criar()
+        resposta.send(JSON.stringify(novoFornecedor))
+    } catch (erro) {
+        resposta.send(JSON.stringify({ mensagem: erro.message }))
+    }
 })
 
 roteador.put('/:idFornecedor', async (requisicao, resposta) => {
