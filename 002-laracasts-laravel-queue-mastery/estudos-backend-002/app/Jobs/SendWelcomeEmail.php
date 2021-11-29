@@ -16,8 +16,16 @@ class SendWelcomeEmail implements ShouldQueue
     /**
      * The number of seconds to wait before retrying the job.
      *
+     * Pode ser um array para as tentativas posteriores
+     * Ex: [2, 20, 200]
+     * 2s para primeira, 20s para segunda, 200s para terceira em diante
      */
-    public int $backoff = 3;
+    public $backoff = 3;
+
+    /**
+     * The maximum number of unhandled exceptions to allow before failing.
+     */
+    public int $maxExceptions = 3;
 
     /**
      * The number of seconds the job can run before timing out.
@@ -46,6 +54,15 @@ class SendWelcomeEmail implements ShouldQueue
     }
 
     /**
+     * Método executado quando job falha (quando vai para fila de failed_jobs).
+     * @param $exception
+     */
+    public function failed(\Exception $exception)
+    {
+        info('Logando um job que falhou por: ' . $exception->getMessage());
+    }
+
+    /**
      * Execute the job.
      *
      * @return void
@@ -60,6 +77,10 @@ class SendWelcomeEmail implements ShouldQueue
         sleep(3);
 
         info('... finalizando execução do job.');
+
+        // recoloca job na fila com algum delay em segundos
+        // se exceder propriedade tries, job é falhado
+        // $this->release(2);
     }
 
     /**
