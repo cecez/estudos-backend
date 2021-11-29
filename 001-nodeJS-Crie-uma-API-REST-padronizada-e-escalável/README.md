@@ -11,14 +11,16 @@ npm init -y
 npm install express body-parser sequelize mysql2 config
 node api/index.js
 
-# ver pacotes desatualizados
-npm outdated
-
-# criar migração
-npx sequelize-cli migration:generate --name add-deletedAt-columns
-
-# executar migração
-npx sequelize-cli db:migrate
 ```
 
-- Documentação Sequelize: https://sequelize.org/master/
+Status HTTP:
+* sucesso:
+    * 200 - ok
+    * 201 - ok e recurso criado
+    * 204 - ok e sem conteúdo de resposta
+* falha:
+    * 400 - requisição inválida / mal formatada
+    * 404 - não encontrado
+* mais informações em: 
+    * https://developer.mozilla.org/en-US/docs/Web/HTTP/Status 
+    * (ou https://http.cat)
