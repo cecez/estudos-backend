@@ -2,7 +2,7 @@ const roteador = require('express').Router()
 const servico = require('../../servicos/Fornecedor')
 const Fornecedor = require('../../entidades/Fornecedor')
 
-roteador.delete('/:idFornecedor', async (requisicao, resposta) => {
+roteador.delete('/:idFornecedor', async (requisicao, resposta, proximoMiddleware) => {
     try {
         const idFornecedor = requisicao.params.idFornecedor
         const fornecedor = new Fornecedor({ id: idFornecedor })
@@ -11,8 +11,7 @@ roteador.delete('/:idFornecedor', async (requisicao, resposta) => {
         resposta.status(204)
         resposta.send()
     } catch (erro) {
-        resposta.status(404)
-        resposta.send(JSON.stringify({ mensagem: erro.message }))
+        proximoMiddleware(erro)
     }
 })
 
@@ -24,7 +23,7 @@ roteador.get('/', async (requisicao, resposta) => {
     )
 })
 
-roteador.get('/:idFornecedor', async (requisicao, resposta) => {
+roteador.get('/:idFornecedor', async (requisicao, resposta, proximoMiddleware) => {
     try {
         const idFornecedor = requisicao.params.idFornecedor
         const fornecedor = new Fornecedor({ id: idFornecedor})
@@ -32,13 +31,12 @@ roteador.get('/:idFornecedor', async (requisicao, resposta) => {
         resposta.status(200)
         resposta.send(JSON.stringify(fornecedor))
     } catch (erro) {
-        resposta.status(404)
-        resposta.send(JSON.stringify({  mensagem: erro.message }))
+        proximoMiddleware(erro)
     }
     
 })
 
-roteador.post('/', async (requisicao, resposta) => {
+roteador.post('/', async (requisicao, resposta, proximoMiddleware) => {
     try {
         const dadosRecebidos = requisicao.body
         const novoFornecedor = new Fornecedor(dadosRecebidos)
@@ -46,12 +44,11 @@ roteador.post('/', async (requisicao, resposta) => {
         resposta.status(201)
         resposta.send(JSON.stringify(novoFornecedor))
     } catch (erro) {
-        resposta.status(400)
-        resposta.send(JSON.stringify({ mensagem: erro.message }))
+        proximoMiddleware(erro)
     }
 })
 
-roteador.put('/:idFornecedor', async (requisicao, resposta) => {
+roteador.put('/:idFornecedor', async (requisicao, resposta, proximoMiddleware) => {
     try {
         const id = requisicao.params.idFornecedor
         const dadosRecebidos = requisicao.body
@@ -61,14 +58,7 @@ roteador.put('/:idFornecedor', async (requisicao, resposta) => {
         resposta.status(204)
         resposta.end()
     } catch (erro) {
-        var codigoDeStatus = 400
-
-        if (String(erro.message).includes('não encontrado')) {
-            codigoDeStatus = 404
-        }
-
-        resposta.status(codigoDeStatus)
-        resposta.send(JSON.stringify({ mensagem: erro.message }))
+        proximoMiddleware(erro)
     }
     
 })
