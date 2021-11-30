@@ -1,4 +1,5 @@
 const modeloFornecedor = require('../modelos/Fornecedores')
+const NaoEncontrado = require('../erros/NaoEncontrado')
 
 module.exports = 
 {
@@ -18,7 +19,7 @@ module.exports =
         const resultado = await modeloFornecedor.findOne({ where: { id } })
 
         if (!resultado) {
-            throw new Error('Fornecedor não encontrado')
+            throw new NaoEncontrado('Fornecedor não encontrado.')
         }
 
         return resultado
