@@ -99,6 +99,24 @@ Route::get('/chain-with-closure', function () {
     // chain na qual o segundo "job" chama um batch de jobs
     \Illuminate\Support\Facades\Bus::chain([
         new \App\Jobs\Job2(),
-        fn() => \Illuminate\Support\Facades\Bus::batch([...])->dispatch()
+        fn() => \Illuminate\Support\Facades\Bus::batch([])->dispatch()
    ]);
+});
+
+Route::get('/race-condition', function () {
+    // para evitar condições de corrida (race conditions), pode-se usar o recurso de lock nos jobs
+    // abaixo um exemplo de job que só é executado quando adquire lock
+    \App\Jobs\RaceCondition::dispatch();
+});
+
+Route::get('/redis-race-condition', function () {
+    \App\Jobs\RedisRaceCondition::dispatch();
+});
+
+Route::get('/redis-throttle', function () {
+    \App\Jobs\RedisThrottle::dispatch();
+});
+
+Route::get('/job-com-middleware', function () {
+   \App\Jobs\JobComMiddleware::dispatch();
 });
