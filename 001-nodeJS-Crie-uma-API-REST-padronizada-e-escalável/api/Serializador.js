@@ -16,3 +16,10 @@ class Serializador
         return JSON.stringify(dados)
     }
 }
+
+module.exports = {
+    Serializador,
+    formatosAceitos: [
+        'application/json'
+    ]
+}
