@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\Middleware\ThrottlesExceptions;
 use Illuminate\Queue\Middleware\WithoutOverlapping;
 use Illuminate\Queue\SerializesModels;
 
@@ -42,9 +43,13 @@ class JobComMiddleware implements ShouldQueue
 
     public function middleware()
     {
-        // configura para que não haja execução simultânea do job
         return [
-            new WithoutOverlapping('jobComMiddleware', 1)
+            // configura para que não haja execução simultânea do job
+            new WithoutOverlapping('jobComMiddleware', 1),
+
+            // caso o job esteja falhando [maxAttempts] tentativas, este middleware adia execução dos jobs,
+            // recolocando na fila imediatemente os jobs
+            new ThrottlesExceptions(10)
         ];
     }
 }
