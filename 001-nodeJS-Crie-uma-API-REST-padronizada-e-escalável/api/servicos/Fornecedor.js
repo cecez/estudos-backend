@@ -12,7 +12,7 @@ module.exports =
     },
 
     listar() {
-        return modeloFornecedor.findAll()
+        return modeloFornecedor.findAll({ raw: true })
     },
 
     async pegarPorId(id) {

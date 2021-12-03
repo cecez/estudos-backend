@@ -1,6 +1,7 @@
 const roteador = require('express').Router()
 const servico = require('../../servicos/Fornecedor')
 const Fornecedor = require('../../entidades/Fornecedor')
+const SerializadorFornecedor = require('../../Serializador').SerializadorFornecedor
 
 roteador.delete('/:idFornecedor', async (requisicao, resposta, proximoMiddleware) => {
     try {
@@ -18,9 +19,8 @@ roteador.delete('/:idFornecedor', async (requisicao, resposta, proximoMiddleware
 roteador.get('/', async (requisicao, resposta) => {
     const resultados = await servico.listar()
     resposta.status(200)
-    resposta.send(
-        JSON.stringify(resultados)
-    )
+    const serializador = new SerializadorFornecedor(resposta.getHeader('Content-Type'))
+    resposta.send(serializador.serializar(resultados))
 })
 
 roteador.get('/:idFornecedor', async (requisicao, resposta, proximoMiddleware) => {
@@ -29,7 +29,8 @@ roteador.get('/:idFornecedor', async (requisicao, resposta, proximoMiddleware) =
         const fornecedor = new Fornecedor({ id: idFornecedor})
         await fornecedor.carregar()
         resposta.status(200)
-        resposta.send(JSON.stringify(fornecedor))
+        const serializador = new SerializadorFornecedor(resposta.getHeader('Content-Type'))
+        resposta.send(serializador.serializar(fornecedor))
     } catch (erro) {
         proximoMiddleware(erro)
     }
@@ -42,7 +43,8 @@ roteador.post('/', async (requisicao, resposta, proximoMiddleware) => {
         const novoFornecedor = new Fornecedor(dadosRecebidos)
         await novoFornecedor.criar()
         resposta.status(201)
-        resposta.send(JSON.stringify(novoFornecedor))
+        const serializador = new SerializadorFornecedor(resposta.getHeader('Content-Type'))
+        resposta.send(serializador.serializar(novoFornecedor))
     } catch (erro) {
         proximoMiddleware(erro)
     }
