@@ -120,3 +120,24 @@ Route::get('/redis-throttle', function () {
 Route::get('/job-com-middleware', function () {
    \App\Jobs\JobComMiddleware::dispatch();
 });
+
+Route::get('/job-unique', function () {
+    // somente haverá um job na fila, outras chamadas de dispatch serão ignoradas
+    // por padrão o nome da classe é usado como "chave"
+    \App\Jobs\JobUnique::dispatch();
+});
+
+Route::get('/job-confiavel', function () {
+    \Illuminate\Support\Facades\DB::transaction(function () {
+        // operações no banco de dados
+
+        // dispatch é adiado somente após a transação ser comitada
+        // também há uma configuração em queue.after_commit para ser global
+        \App\Jobs\Job2::dispatch()->afterCommit();
+    });
+
+    // outras dicas
+    // * evitar que no construtor do job hajam muitos dados a serem serializados/desserializados
+    // * dados para execução do job precisam estar totalmente disponíveis no job (exemplo do deploy de um commmit)
+    // * se dados sensíveis são armazenados, utilizar interface ShouldBeEncrypted
+});
