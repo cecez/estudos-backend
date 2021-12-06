@@ -3,6 +3,7 @@ const app = express()
 const bodyParser = require('body-parser')
 const config = require('config')
 const formatosAceitos = require('./Serializador').formatosAceitos
+const SerializadorErro = require('./Serializador').SerializadorErro
 
 app.use(bodyParser.json())
 
@@ -30,7 +31,8 @@ app.use('/api/fornecedores', roteador)
 // (último) middleware para processar e entregar requisições com erro
 app.use((erro, requisicao, resposta, proximoMiddleware) => {
     resposta.status(erro.codigoDeStatus)
-    resposta.send(JSON.stringify({ mensagem: erro.message }))
+    const serializador = new SerializadorErro(resposta.getHeader('Content-Type'))
+    resposta.send(serializador.serializar({ mensagem: erro.message }))
 })
 
 app.listen(config.get('api.porta'), () => console.log('API rodando na porta ' + config.get('api.porta') + '...'))
