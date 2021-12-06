@@ -24,3 +24,7 @@ Status HTTP:
 * mais informações em: 
     * https://developer.mozilla.org/en-US/docs/Web/HTTP/Status 
     * (ou https://http.cat)
+
+Materiais complementares:
+* https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Content_negotiation/List_of_default_Accept_values
+* https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array
