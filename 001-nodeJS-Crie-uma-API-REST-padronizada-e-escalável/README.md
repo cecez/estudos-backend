@@ -10,6 +10,7 @@ docker exec -it CONTAINER_ID /bin/bash
 npm init -y
 npm install express body-parser sequelize mysql2 config
 node api/index.js
+npm run start-dev
 
 ```
 
@@ -28,3 +29,6 @@ Status HTTP:
 Materiais complementares:
 * https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Content_negotiation/List_of_default_Accept_values
 * https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+Projeto:
+* API em Node para alunos (id, nome, email, cpf, data de nascimento, timestamps, softdelete), usando repository, service, interface
