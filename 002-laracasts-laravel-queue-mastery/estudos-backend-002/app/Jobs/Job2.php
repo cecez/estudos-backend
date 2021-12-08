@@ -13,6 +13,10 @@ class Job2 implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels, Batchable;
 
+    // remove job caso model não seja encontrado
+    // por padrão false, o que faz o job falhar
+    public bool $deleteWhenMissingModels = true;
+
     /**
      * @var mixed|null
      */
