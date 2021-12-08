@@ -2,3 +2,6 @@
 /db
 /config/default.json
 /.env
+/projeto/.env
+/projeto/db
+/projeto/node_modules
