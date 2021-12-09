@@ -1,0 +1,30 @@
+version: '3.8'
+
+services: 
+  mysqldb_projeto:
+    image: mysql
+    restart: always
+    env_file: ./.env
+    environment:
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+      MYSQL_DATABASE: $MYSQL_DATABASE
+    ports:
+      - $MYSQL_LOCAL_PORT:$MYSQL_DOCKER_PORT
+    volumes: 
+      - db-config-projeto:/etc/mysql
+      - db-data-projeto:/var/lib/mysql
+      - ./db/backup/files/:/data_backup/data
+  app:
+    build: .
+    ports:
+      - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
+    volumes: 
+      - ./:/home/app
+    depends_on:
+      - mysqldb_projeto
+    stdin_open: true
+    tty: true
+
+volumes: 
+  db-config-projeto:
+  db-data-projeto:

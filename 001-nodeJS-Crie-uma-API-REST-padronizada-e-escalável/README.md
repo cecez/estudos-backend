@@ -8,9 +8,10 @@ docker exec -it CONTAINER_ID /bin/bash
 
 # preparando o ambiente do projeto
 npm init -y
-npm install express body-parser sequelize mysql2 config
+npm install express body-parser sequelize mysql2 config sequelize-cli
 node api/index.js
 npm run start-dev
+yarn sequelize migration:generate --name create-table-aluno
 
 ```
 

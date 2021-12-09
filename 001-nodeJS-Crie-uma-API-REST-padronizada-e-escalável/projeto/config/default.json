@@ -1,0 +1,11 @@
+{
+    "api": {
+        "porta": 3000
+    },
+    "mysql": {
+        "database": "estudos_backend_001_projeto",
+        "user": "root",
+        "password": "root",
+        "host": "mysqldb_projeto"
+    }
+}
