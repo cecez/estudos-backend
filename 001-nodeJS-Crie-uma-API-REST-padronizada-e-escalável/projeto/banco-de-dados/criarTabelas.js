@@ -1,4 +1,3 @@
-// todo
 const modeloAluno = require('../modelos/Alunos')
 
 modeloAluno
