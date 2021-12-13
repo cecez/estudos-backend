@@ -32,4 +32,10 @@ Materiais complementares:
 * https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 Projeto:
-* API em Node para alunos (id, nome, email, cpf, data de nascimento, timestamps, softdelete), usando repository, service, interface
+* API em Node para alunos:
+    [*] tabela/migration (id, nome, email, cpf, data de nascimento, timestamps, softdelete), 
+    [ ] controller
+    [ ] usando repository 
+    [ ] service 
+    [ ] interface
+    [ ] DTO
