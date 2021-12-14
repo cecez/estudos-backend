@@ -33,8 +33,8 @@ Materiais complementares:
 
 Projeto:
 * API em Node para alunos:
-    [*] tabela/migration (id, nome, email, cpf, data de nascimento, timestamps, softdelete), 
-    [ ] controller
+    [x] tabela/migration (id, nome, email, cpf, data de nascimento, timestamps, softdelete), 
+    [x] controller
     [ ] usando repository 
     [ ] service 
     [ ] interface
