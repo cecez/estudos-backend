@@ -35,7 +35,7 @@ Projeto:
 * API em Node para alunos:
     [x] tabela/migration (id, nome, email, cpf, data de nascimento, timestamps, softdelete), 
     [x] controller
-    [ ] usando repository 
-    [ ] service 
+    [x] service 
+    [ ] repository 
     [ ] interface
     [ ] DTO
