@@ -36,6 +36,6 @@ Projeto:
     [x] tabela/migration (id, nome, email, cpf, data de nascimento, timestamps, softdelete), 
     [x] controller
     [x] service 
-    [ ] repository 
+    [x] repository 
     [ ] interface
     [ ] DTO

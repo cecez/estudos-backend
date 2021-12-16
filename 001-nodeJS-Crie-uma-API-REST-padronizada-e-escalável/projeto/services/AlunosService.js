@@ -1,14 +1,26 @@
-const Service = require('./Service');
+const AlunoRepository = require('../repositories/AlunoRepository')
+const AlunoDTO = require('../dtos/AlunosDTO')
 
-class AlunosService extends Service {
+class AlunosService {
 
     constructor() {
-        super('Alunos');
+        this.alunoRepository = new AlunoRepository();
     }
 
-    // async pegaTodosOsRegistros(where = {}) {
-    //     return database[this.nomeDoModelo].scope('todas').findAll({ where: { ...where } });
-    // }
+    async pegaTodosOsRegistros() {
+        const resultados = await this.alunoRepository.buscaTodos();
+
+        const resultadosDTO = resultados.map(
+            function (aluno) { 
+                return new AlunoDTO(
+                    aluno.nome, 
+                    aluno.dataDeNascimento
+                )  
+            }
+        )
+
+        return resultadosDTO
+    }
 
 }
 
