@@ -22,9 +22,9 @@ class Service {
     //     return database[this.nomeDoModelo].destroy(where);
     // }
 
-    async pegaTodosOsRegistros() {
-        return database[this.nomeDoModelo].findAll();
-    }
+    // async pegaTodosOsRegistros() {
+    //     return database[this.nomeDoModelo].findAll();
+    // }
 
     // async pegaUmRegistroPorId(id) {
     //     return await this.pegaUmRegistroPorWhere({ where: { id: id } });
