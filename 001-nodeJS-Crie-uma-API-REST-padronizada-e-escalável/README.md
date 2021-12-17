@@ -37,5 +37,6 @@ Projeto:
     [x] controller
     [x] service 
     [x] repository 
-    [ ] interface
-    [ ] DTO
+    [-] interface (somente com TypeScript)
+    [x] DTO
+    [ ] criar aluno

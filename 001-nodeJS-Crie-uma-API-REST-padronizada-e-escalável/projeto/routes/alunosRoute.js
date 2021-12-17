@@ -8,7 +8,7 @@ router
      .get('/alunos', AlunosController.index)
     // .get('/pessoas/ativas', PessoaController.indexActives)
     // .get('/pessoas/:id', PessoaController.show)
-    // .post('/pessoas', PessoaController.create)
+     .post('/alunos', AlunosController.create)
     // .post('/pessoas/:estudanteId/cancela', PessoaController.cancela)
     // .post('/pessoas/:id/restaura', PessoaController.restore)
     // .put('/pessoas/:id', PessoaController.update);

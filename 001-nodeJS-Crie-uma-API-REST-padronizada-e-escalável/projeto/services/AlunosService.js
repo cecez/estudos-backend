@@ -3,23 +3,29 @@ const AlunoDTO = require('../dtos/AlunosDTO')
 
 class AlunosService {
 
-    constructor() {
+    constructor() 
+    {
         this.alunoRepository = new AlunoRepository();
     }
 
-    async pegaTodosOsRegistros() {
+    async pegaTodosOsRegistros() 
+    {
         const resultados = await this.alunoRepository.buscaTodos();
 
         const resultadosDTO = resultados.map(
-            function (aluno) { 
-                return new AlunoDTO(
-                    aluno.nome, 
-                    aluno.dataDeNascimento
-                )  
-            }
+             (aluno) => new AlunoDTO(aluno)    
         )
 
         return resultadosDTO
+    }
+
+    async criaRegistro(dados)
+    {
+        const resultado = await this.alunoRepository.cria(dados);
+
+        const resultadoDTO = AlunoDTO.alunoCriado(resultado)
+
+        return resultadoDTO
     }
 
 }

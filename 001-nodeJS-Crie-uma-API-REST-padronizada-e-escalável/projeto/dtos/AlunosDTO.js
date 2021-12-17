@@ -1,9 +1,18 @@
 class AlunosDTO {
 
-    constructor(nome, dataDeNascimento)
+    constructor(aluno)
     {
-        this.nomeDoAluno = nome
-        this.dataDeNascimentoDoAluno = dataDeNascimento
+        this.nomeDoAluno = aluno.nome
+        this.dataDeNascimentoDoAluno = aluno.dataDeNascimento
+    }
+
+    static alunoCriado(aluno) {
+        return {
+            "id": aluno.id,
+            "nomeDoAluno": aluno.nome,
+            "dataDeNascimentoDoAluno": aluno.dataDeNascimento,
+            "dataDeCriacaoDoAluno": aluno.createdAt
+        }
     }
 
 }
