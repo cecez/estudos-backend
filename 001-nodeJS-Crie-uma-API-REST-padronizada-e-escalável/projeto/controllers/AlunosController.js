@@ -1,5 +1,6 @@
 const { AlunosService } = require('../services')
 const alunosService = new AlunosService()
+const FormRequesAlunosCreate = require('../form-requests/alunos/create')
 
 class AlunosController
 {
@@ -16,8 +17,14 @@ class AlunosController
     static async create(requisicao, resposta)
     {
         try {
-            const alunoCriado = await alunosService.criaRegistro(valida(requisicao))
-            resposta.status(200).json(alunoCriado)
+            const dadosValidos = new FormRequesAlunosCreate(requisicao)
+
+            console.log(dadosValidos.nome)
+
+            resposta.status(200).json(dadosValidos)
+
+            //const alunoCriado = await alunosService.criaRegistro(valida(requisicao))
+            //resposta.status(200).json(alunoCriado)
         } catch (erro) {
             resposta.status(500).json(erro.message)
         }
