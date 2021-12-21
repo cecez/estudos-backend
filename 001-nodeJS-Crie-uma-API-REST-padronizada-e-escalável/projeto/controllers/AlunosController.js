@@ -1,6 +1,6 @@
 const { AlunosService } = require('../services')
 const alunosService = new AlunosService()
-const FormRequesAlunosCreate = require('../form-requests/alunos/create')
+const FormRequesAlunosCreate = require('../form-requests/alunos/FormRequestAlunosCreate')
 
 class AlunosController
 {
@@ -19,7 +19,6 @@ class AlunosController
         try {
             const dadosValidos = new FormRequesAlunosCreate(requisicao)
 
-            console.log(dadosValidos.nome)
 
             resposta.status(200).json(dadosValidos)
 
