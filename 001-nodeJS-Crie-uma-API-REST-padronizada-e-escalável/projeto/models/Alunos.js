@@ -16,10 +16,13 @@ module.exports = (sequelize, DataTypes) => {
     nome: DataTypes.STRING,
     email: DataTypes.STRING,
     cpf: DataTypes.STRING(11),
-    dataDeNascimento: { type: DataTypes.DATEONLY, field: 'dataDeNascimento'}
+    dataDeNascimento: { type: DataTypes.DATEONLY, field: 'dataDeNascimento'},
+    createdAt: { type: DataTypes.DATE, field: 'createdAt' },
+    updatedAt: { type: DataTypes.DATE, field: 'updatedAt' },
   }, {
     sequelize,
     modelName: 'Alunos',
+    timestamps: true,
     paranoid: true
   });
   return Alunos;

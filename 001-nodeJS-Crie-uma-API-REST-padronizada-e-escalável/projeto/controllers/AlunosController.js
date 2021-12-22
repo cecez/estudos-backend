@@ -17,13 +17,8 @@ class AlunosController
     static async create(requisicao, resposta)
     {
         try {
-            const dadosValidos = new FormRequesAlunosCreate(requisicao)
-
-
-            resposta.status(200).json(dadosValidos)
-
-            //const alunoCriado = await alunosService.criaRegistro(valida(requisicao))
-            //resposta.status(200).json(alunoCriado)
+            const alunoCriado = await alunosService.criaRegistro(new FormRequesAlunosCreate(requisicao))
+            resposta.status(200).json(alunoCriado)
         } catch (erro) {
             resposta.status(500).json(erro.message)
         }

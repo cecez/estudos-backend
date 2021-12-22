@@ -8,10 +8,12 @@ class AlunosDTO {
 
     static alunoCriado(aluno) {
         return {
-            "id": aluno.id,
+            "idDoAluno": aluno.id,
+            "cpfDoAluno": aluno.cpf,
+            "emailDoAluno": aluno.email,
             "nomeDoAluno": aluno.nome,
-            "dataDeNascimentoDoAluno": aluno.dataDeNascimento,
-            "dataDeCriacaoDoAluno": aluno.createdAt
+            "dataDeNascimentoDoAluno": new Date(aluno.dataDeNascimento).toLocaleDateString('pt-br'),
+            "dataDeCriacaoDoAluno": new Date(aluno.createdAt).toLocaleString('pt-br')
         }
     }
 

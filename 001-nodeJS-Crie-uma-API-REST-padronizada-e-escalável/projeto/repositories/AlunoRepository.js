@@ -9,7 +9,12 @@ class AlunoRepository
 
     async buscaTodos()
     {
-        return database[this.nomeDoModelo].findAll();
+        return database[this.nomeDoModelo].findAll()
+    }
+
+    async cria(dados)
+    {
+        return database[this.nomeDoModelo].create(dados)
     }
 }
 
