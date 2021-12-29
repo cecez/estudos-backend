@@ -1,1 +1,3 @@
-<li>{{ $note->body }}</li>
+@cache($note)
+    <li>{{ $note->body }}</li>
+@endcache
