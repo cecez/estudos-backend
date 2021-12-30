@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Blade::directive('cache', function ($expression) {
-            return "<?php if (! App\Services\RussianCaching::setUp{$expression}) { ?>";
+            return "<?php if (! App\Services\RussianCaching::setUp($expression)) { ?>";
         });
 
         Blade::directive('endcache', function () {

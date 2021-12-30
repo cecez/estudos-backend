@@ -11,6 +11,8 @@ class Note extends Model
     use Cacheable;
     use HasFactory;
 
+    protected $touches = ['card'];
+
     public function card()
     {
         return $this->belongsTo(Card::class);
