@@ -14,7 +14,7 @@ class RussianCaching
         ob_start();
 
         static::$keys[] = $key = $model->getCacheKey();
-        return Cache::has($key);
+        return Cache::tags('views')->has($key);
     }
 
     public static function tearDown()
@@ -23,7 +23,7 @@ class RussianCaching
 
         $html = ob_get_clean();
 
-        return Cache::rememberForever($key, function () use ($html) {
+        return Cache::tags('views')->rememberForever($key, function () use ($html) {
             return $html;
         });
     }

@@ -1,3 +1,3 @@
 @cache($note)
-    <li>{{ $note->body }}</li>
+    <li>- {{ $note->body }}</li>
 @endcache
