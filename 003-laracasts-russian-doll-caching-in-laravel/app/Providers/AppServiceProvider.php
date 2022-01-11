@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -24,12 +23,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Blade::directive('cache', function ($expression) {
-            return "<?php if (! App\Services\RussianCaching::setUp($expression)) { ?>";
-        });
 
-        Blade::directive('endcache', function () {
-            return "<?php } echo App\Services\RussianCaching::tearDown(); ?>";
-        });
     }
 }
