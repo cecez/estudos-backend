@@ -165,6 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
+        \Cecez\Dolly\DollyServiceProvider::class,
 
         /*
          * Application Service Providers...
