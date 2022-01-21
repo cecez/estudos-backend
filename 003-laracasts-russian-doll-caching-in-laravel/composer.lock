@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e7af79c7b799c165ca428d736447b332",
+    "content-hash": "3405515fa409484f8b770f6a4b637f8e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -172,6 +172,56 @@
                 "source": "https://github.com/cecez/estudos-backend-projeto-003/tree/main"
             },
             "time": "2022-01-11T17:30:57+00:00"
+        },
+        {
+            "name": "cecez/genderize-wrapper",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cecez/genderize-wrapper.git",
+                "reference": "be244767fbfbd46b46fce6af7281b2d3f850d630"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cecez/genderize-wrapper/zipball/be244767fbfbd46b46fce6af7281b2d3f850d630",
+                "reference": "be244767fbfbd46b46fce6af7281b2d3f850d630",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Cecez\\GenderizeWrapper\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cezar Castro Rosa",
+                    "email": "cecez86@gmail.com"
+                }
+            ],
+            "description": "Pacote/projeto para informar se um dado nome é masculino/feminino/desconhecido.",
+            "keywords": [
+                "genderize.io",
+                "gênero",
+                "nome",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/cecez/genderize-wrapper/issues",
+                "source": "https://github.com/cecez/genderize-wrapper/tree/main"
+            },
+            "time": "2022-01-21T17:38:54+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -7940,7 +7990,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "cecez/dolly": 20
+        "cecez/dolly": 20,
+        "cecez/genderize-wrapper": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
