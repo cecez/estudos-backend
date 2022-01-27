@@ -15,5 +15,13 @@ interface User {
     id: string;
     nome: string;
     idade: number;
+    genero?: string;    // propriedade opcional, pode ou não existir (undefined)
 }
-const saveUser = (user: User): boolean => (console.log('salvando', {user}) && true);
+const saveUser = (user: User): User => user;
+
+const usuario2: User = {
+    id: 'uuid-3',
+    nome: "Cezar",
+    idade: 35
+}
+console.log(usuario2.genero?.toLowerCase());
