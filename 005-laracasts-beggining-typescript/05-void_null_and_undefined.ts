@@ -2,7 +2,7 @@
 const logging = (param: unknown): void => console.log(param)
 
 // null
-interface User {
+interface User2 {
     id: string;
     email: string;
     name: string|null;
@@ -10,11 +10,11 @@ interface User {
     cpf?: number;   // pode ser undefined
 }
 
-const criaUsuario = (email: string): User => ({
+const criaUsuario = (email: string): User2 => ({
     id: "uuid-1",
     email,
     name: null,
     age: null,
 })
 
-const user: User = criaUsuario("email@email.com")
+const user: User2 = criaUsuario("email@email.com")
