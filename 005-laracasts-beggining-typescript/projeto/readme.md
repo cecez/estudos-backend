@@ -4,11 +4,14 @@ Explorar e conhecer o framework Nestjs e desenvolver uma API simples para listar
 
 [x] Preparar ambiente
 [x] Instalar framework
-[ ] Seguir tutorial da documentação (continuar em Controllers)
+[ ] Seguir tutorial da documentação (continuar em Providers)
 [ ] Implementar API
 
 
 ```
 docker-compose up -d --build
 docker exec -it container bash
+
+# gerar recurso (controller c/ testes, serviço c/ testes, módulo, entidade e DTOs)
+nest g resource [nome]
 ```
