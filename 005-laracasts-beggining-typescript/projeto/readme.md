@@ -4,7 +4,7 @@ Explorar e conhecer o framework Nestjs e desenvolver uma API simples para listar
 
 [x] Preparar ambiente
 [x] Instalar framework
-[ ] Seguir tutorial da documentação (continuar em Providers)
+[ ] Seguir tutorial da documentação (continuar em Middleware)
 [ ] Implementar API
 
 
