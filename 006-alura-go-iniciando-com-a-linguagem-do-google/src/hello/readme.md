@@ -6,3 +6,5 @@ go build arquivo.go
 // compilação e execução em um comando só
 go run arquivo.go
 ```
+
+- métodos de pacotes começam com letra maiúscula

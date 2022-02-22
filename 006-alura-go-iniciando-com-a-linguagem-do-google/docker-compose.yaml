@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  app_006:
+    build: .
+    volumes: 
+      - ./:/home/app
+    stdin_open: true
+    tty: true
