@@ -55,13 +55,25 @@ func pedeOpcaoDoUsuario() int {
 func processaOpcaoEscolhida(opcao int) {
 	fmt.Println("Você escolheu", opcao)
 
-	if opcao == 1 {
-		fmt.Println("Vamos fazer monitoramento...")
-	} else if opcao == 2 {
-		fmt.Println("Exibindo logs")
-	} else if opcao == 0 {
+	// if opcao == 1 {
+	// 	fmt.Println("Vamos fazer monitoramento...")
+	// } else if opcao == 2 {
+	// 	fmt.Println("Exibindo logs")
+	// } else if opcao == 0 {
+	// 	fmt.Println("Saindo, adeus.")
+	// } else {
+	// 	fmt.Println("Opção inválida.")
+	// }
+
+	switch opcao {
+	case 0:
 		fmt.Println("Saindo, adeus.")
-	} else {
+		//fallthrough
+	case 1:
+		fmt.Println("Vamos fazer monitoramento...")
+	case 2:
+		fmt.Println("Exibindo logs")
+	default:
 		fmt.Println("Opção inválida.")
 	}
 
