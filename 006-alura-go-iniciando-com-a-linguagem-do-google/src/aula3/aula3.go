@@ -1,6 +1,7 @@
 package main
 
 import "fmt"
+import "os"
 
 // import "reflect"
 
@@ -68,6 +69,7 @@ func processaOpcaoEscolhida(opcao int) {
 	switch opcao {
 	case 0:
 		fmt.Println("Saindo, adeus.")
+		os.Exit(0)
 		//fallthrough
 	case 1:
 		fmt.Println("Vamos fazer monitoramento...")
@@ -75,6 +77,7 @@ func processaOpcaoEscolhida(opcao int) {
 		fmt.Println("Exibindo logs")
 	default:
 		fmt.Println("Opção inválida.")
+		os.Exit(1)
 	}
 
 }
