@@ -1,16 +1,20 @@
 package main
 
-import "fmt"
-import "os"
-import "net/http"
+import (
+	"fmt"
+	"net/http"
+	"os"
+)
 
 // import "reflect"
 
 func main() {
 	boasVindas()
-	exibeMenuDeOpcoes()
-	var opcaoEscolhida = pedeOpcaoDoUsuario()
-	processaOpcaoEscolhida(opcaoEscolhida)
+	for {
+		exibeMenuDeOpcoes()
+		opcaoEscolhida := pedeOpcaoDoUsuario()
+		processaOpcaoEscolhida(opcaoEscolhida)
+	}
 }
 
 func boasVindas() {
@@ -55,7 +59,6 @@ func pedeOpcaoDoUsuario() int {
 }
 
 func processaOpcaoEscolhida(opcao int) {
-	fmt.Println("Você escolheu", opcao)
 
 	// if opcao == 1 {
 	// 	fmt.Println("Vamos fazer monitoramento...")
@@ -84,11 +87,16 @@ func processaOpcaoEscolhida(opcao int) {
 }
 
 func monitoramento() {
-	fmt.Println("Iniciando monitoramento ...")
+	fmt.Println("-> Iniciando monitoramento ...")
 
 	site := "https://www.cecez.com.br"
 	resposta, _ := http.Get(site)
-	fmt.Println(resposta)
 
-	fmt.Println("... terminando monitoramento.")
+	if resposta.StatusCode == 200 {
+		fmt.Println("Site", site, "carregado com sucesso!")
+	} else {
+		fmt.Println("Não foi possível carregar o site", site, ". Status Code:", resposta.StatusCode)
+	}
+
+	fmt.Println("<- ... terminando monitoramento.")
 }
