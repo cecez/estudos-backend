@@ -90,28 +90,31 @@ func monitoramento() {
 
 	// Arrays tem tipo e tamanho fixo
 	// Quando os arrays são criados, eles assumem os valores padrão para os tipos de seus elementos. (p.ex, string = "", int = 0)
-	var sites [3]string
-	sites[0] = "https://www.cecez.com.br"
-	sites[1] = "https://www.alura.com.br"
-	sites[2] = "https://www.google.com.br"
+	// var sites [3]string
+	// sites[0] = "https://www.cecez.com.br"
+	// sites[1] = "https://www.alura.com.br"
+	// sites[2] = "https://www.google.com.br"
 
 	// Slices são abstrações de arrays
 	// Não é necessário informar tamanho/capacidade
 	// Gerenciam a capacidade (tamanho) que o array tem
-	var sliceSites []string
-	sliceSites = append(sliceSites, "www.site1.com.br")
-	sliceSites = append(sliceSites, "site2.com.br")
-
+	// var sliceSites []string
+	// sliceSites = append(sliceSites, "www.site1.com.br")
+	// sliceSites = append(sliceSites, "site2.com.br")
 
 	fmt.Println("-> Iniciando monitoramento ...")
 
-	site := "https://www.cecez.com.br"
-	resposta, _ := http.Get(site)
+	sites := []string{"https://www.cecez.com.br", "https://www.google.com.br"}
 
-	if resposta.StatusCode == 200 {
-		fmt.Println("Site", site, "carregado com sucesso!")
-	} else {
-		fmt.Println("Não foi possível carregar o site", site, ". Status Code:", resposta.StatusCode)
+	//for i := 0; i < len(sites); i++ {
+	for _, site := range sites {
+		resposta, _ := http.Get(site)
+
+		if resposta.StatusCode == 200 {
+			fmt.Println("Site", site, "carregado com sucesso!")
+		} else {
+			fmt.Println("Não foi possível carregar o site", site, ". Status Code:", resposta.StatusCode)
+		}
 	}
 
 	fmt.Println("<- ... terminando monitoramento.")
