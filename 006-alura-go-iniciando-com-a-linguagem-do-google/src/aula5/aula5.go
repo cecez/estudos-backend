@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"time"
 )
 
 // import "reflect"
@@ -87,6 +88,8 @@ func processaOpcaoEscolhida(opcao int) {
 }
 
 func monitoramento() {
+	const MONITORAMENTOS = 5
+	const INTERVALO_ENTRE_MONITORAMENTO = 5 // em segundos
 
 	// Arrays tem tipo e tamanho fixo
 	// Quando os arrays são criados, eles assumem os valores padrão para os tipos de seus elementos. (p.ex, string = "", int = 0)
@@ -104,18 +107,24 @@ func monitoramento() {
 
 	fmt.Println("-> Iniciando monitoramento ...")
 
-	sites := []string{"https://www.cecez.com.br", "https://www.google.com.br"}
+	sites := []string{"https://www.cecez.com.br", "https://www.google.com.br", "https://coco-status-code.herokuapp.com"}
 
-	//for i := 0; i < len(sites); i++ {
-	for _, site := range sites {
-		resposta, _ := http.Get(site)
-
-		if resposta.StatusCode == 200 {
-			fmt.Println("Site", site, "carregado com sucesso!")
-		} else {
-			fmt.Println("Não foi possível carregar o site", site, ". Status Code:", resposta.StatusCode)
+	for i := 0; i < MONITORAMENTOS; i++ {
+		for _, site := range sites {
+			testaSite(site)
 		}
+		time.Sleep(INTERVALO_ENTRE_MONITORAMENTO * time.Second)
 	}
 
 	fmt.Println("<- ... terminando monitoramento.")
+}
+
+func testaSite(url string) {
+	resposta, _ := http.Get(url)
+
+	if resposta.StatusCode == http.StatusOK {
+		fmt.Println("Site", url, "carregado com sucesso!")
+	} else {
+		fmt.Println("Não foi possível carregar o site", url, ". Status Code:", resposta.StatusCode)
+	}
 }
