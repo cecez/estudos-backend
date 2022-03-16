@@ -4,8 +4,10 @@ import (
 	"bufio"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"net/http"
 	"os"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -13,9 +15,6 @@ import (
 // import "reflect"
 
 func main() {
-	registraLog("site falsi", false)
-	os.Exit(0)
-
 	boasVindas()
 	for {
 		exibeMenuDeOpcoes()
@@ -85,10 +84,10 @@ func processaOpcaoEscolhida(opcao int) {
 	case 1:
 		monitoramento()
 	case 2:
-		fmt.Println("Exibindo logs")
+		exibeLogs()
 	default:
 		fmt.Println("Opção inválida.")
-		os.Exit(1)
+		//os.Exit(1)
 	}
 
 }
@@ -119,7 +118,8 @@ func monitoramento() {
 
 	for i := 0; i < MONITORAMENTOS; i++ {
 		for _, site := range sites {
-			testaSite(site)
+			status := testaSite(site)
+			registraLog(site, status)
 		}
 		time.Sleep(INTERVALO_ENTRE_MONITORAMENTO * time.Second)
 	}
@@ -127,7 +127,7 @@ func monitoramento() {
 	fmt.Println("<- ... terminando monitoramento.")
 }
 
-func testaSite(url string) {
+func testaSite(url string) bool {
 	resposta, err := http.Get(url)
 
 	if err != nil {
@@ -135,9 +135,9 @@ func testaSite(url string) {
 	}
 
 	if resposta.StatusCode == http.StatusOK {
-		fmt.Println("Site", url, "carregado com sucesso!")
+		return true
 	} else {
-		fmt.Println("Não foi possível carregar o site", url, ". Status Code:", resposta.StatusCode)
+		return false
 	}
 }
 
@@ -174,6 +174,19 @@ func registraLog(site string, status bool) {
 		fmt.Println("Erro ao abrir arquivo para registrar logs.")
 	}
 
-	arquivo.WriteString("testinho, tchau\n")
+	// especificação para formatos https://go.dev/src/time/format.go
+	timestamp := time.Now().Format("02/01/2006 15:04:05")
+
+	arquivo.WriteString("[" + timestamp + "] " + site + " - status online:" + strconv.FormatBool(status) + "\n")
 	arquivo.Close()
+}
+
+func exibeLogs() {
+	arquivo, err := ioutil.ReadFile("logs.txt")
+
+	if err != nil {
+		fmt.Println("Erro ao abrir arquivo de logs.")
+	}
+
+	fmt.Println(string(arquivo))
 }

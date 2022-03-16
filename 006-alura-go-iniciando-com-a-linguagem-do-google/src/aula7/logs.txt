@@ -1,2 +1,47 @@
 testinho, tchautestinho, tchautestinho, tchau
 testinho, tchau
+https://www.cecez.com.br - status online:true
+https://www.google.com.br - status online:true
+https://coco-status-code.herokuapp.com - status online:false
+https://www.cecez.com.br - status online:true
+https://www.google.com.br - status online:true
+https://coco-status-code.herokuapp.com - status online:false
+https://www.cecez.com.br - status online:true
+https://www.google.com.br - status online:true
+https://coco-status-code.herokuapp.com - status online:false
+https://www.cecez.com.br - status online:true
+https://www.google.com.br - status online:true
+https://coco-status-code.herokuapp.com - status online:false
+https://www.cecez.com.br - status online:true
+https://www.google.com.br - status online:true
+https://coco-status-code.herokuapp.com - status online:false
+https://www.cecez.com.br - status online:true
+https://www.google.com.br - status online:true
+https://coco-status-code.herokuapp.com - status online:false
+https://www.cecez.com.br - status online:true
+https://www.google.com.br - status online:true
+https://coco-status-code.herokuapp.com - status online:false
+https://www.cecez.com.br - status online:true
+https://www.google.com.br - status online:true
+https://coco-status-code.herokuapp.com - status online:false
+https://www.cecez.com.br - status online:true
+https://www.google.com.br - status online:true
+https://coco-status-code.herokuapp.com - status online:false
+https://www.cecez.com.br - status online:true
+https://www.google.com.br - status online:true
+https://coco-status-code.herokuapp.com - status online:false
+[16/03/2022 11:06:33]https://www.cecez.com.br - status online:true
+[16/03/2022 11:06:33]https://www.google.com.br - status online:true
+[16/03/2022 11:06:34]https://coco-status-code.herokuapp.com - status online:false
+[16/03/2022 11:06:40]https://www.cecez.com.br - status online:true
+[16/03/2022 11:06:40]https://www.google.com.br - status online:true
+[16/03/2022 11:06:41]https://coco-status-code.herokuapp.com - status online:false
+[16/03/2022 11:06:47]https://www.cecez.com.br - status online:true
+[16/03/2022 11:06:47]https://www.google.com.br - status online:true
+[16/03/2022 11:06:48]https://coco-status-code.herokuapp.com - status online:false
+[16/03/2022 11:06:53]https://www.cecez.com.br - status online:true
+[16/03/2022 11:06:53]https://www.google.com.br - status online:true
+[16/03/2022 11:06:54]https://coco-status-code.herokuapp.com - status online:false
+[16/03/2022 11:07:00]https://www.cecez.com.br - status online:true
+[16/03/2022 11:07:00]https://www.google.com.br - status online:true
+[16/03/2022 11:07:01]https://coco-status-code.herokuapp.com - status online:false
