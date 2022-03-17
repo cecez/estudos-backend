@@ -1,0 +1,19 @@
+{
+    "name": "cecez/estudos-php-ds",
+    "description": "Experimentando extensão php-ds",
+    "type": "project",
+    "require": {
+        "php-ds/php-ds": "^1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cecez\\EstudosPhpDs\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Cezar Castro Rosa",
+            "email": "cecez86@gmail.com"
+        }
+    ]
+}
