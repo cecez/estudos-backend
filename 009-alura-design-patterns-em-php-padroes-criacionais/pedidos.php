@@ -1,20 +1,23 @@
 <?php
 
-use Alura\DesignPattern\DadosExtrinsecosPedido;
+use Alura\DesignPattern\Pedido\PedidoFactory;
 use Alura\DesignPattern\Orcamento;
-use Alura\DesignPattern\Pedido;
 
 require 'vendor/autoload.php';
 
 $pedidos = [];
-$dados = new DadosExtrinsecosPedido(md5('a'), new \DateTimeImmutable());
+$pedidoFactory = new PedidoFactory();
 
 for ($i = 0; $i < 10000; $i++) {
-    $pedido = new Pedido();
-    $pedido->dados = $dados;
-    $pedido->orcamento = new Orcamento();
+    $orcamento = new Orcamento();
 
-    $pedidos[] = $pedido;
+    try {
+        $pedido = $pedidoFactory->createPedido('Cezar Rosa', date('Y-m-d'), $orcamento);
+        $pedidos[] = $pedido;
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+
 }
 
 echo memory_get_peak_usage();
