@@ -2,9 +2,9 @@
 
 namespace Alura\DesignPattern\NotaFiscal;
 
-class NotaFiscalBuilder
+abstract class NotaFiscalBuilder
 {
-    private NotaFiscal $notaFiscal;
+    protected NotaFiscal $notaFiscal;
 
     public function __construct()
     {
@@ -42,9 +42,6 @@ class NotaFiscalBuilder
         return $this;
     }
 
-    public function build(): NotaFiscal
-    {
-        return $this->notaFiscal;
-    }
+    abstract public function build(): NotaFiscal;
 
 }

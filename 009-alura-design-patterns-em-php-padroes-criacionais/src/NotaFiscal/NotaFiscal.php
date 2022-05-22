@@ -2,11 +2,13 @@
 
 namespace Alura\DesignPattern\NotaFiscal;
 
+use Alura\DesignPattern\ItemOrcamento;
+
 class NotaFiscal
 {
     private string $razaoSocial;
     private string $cnpj;
-    private float $valorTotal;
+    private float $valor;
     private \DateTimeInterface $dataDeEmissao;
     private array $itens;
     private float $valorImposto;
@@ -29,11 +31,11 @@ class NotaFiscal
     }
 
     /**
-     * @param  float  $valorTotal
+     * @param  float  $valor
      */
-    public function setValorTotal(float $valorTotal): void
+    public function setValor(float $valor): void
     {
-        $this->valorTotal = $valorTotal;
+        $this->valor = $valor;
     }
 
     /**
@@ -68,6 +70,22 @@ class NotaFiscal
     public function getCNPJ(): string
     {
         return $this->cnpj;
+    }
+
+    public function getValor(): float
+    {
+        return array_reduce(
+            $this->itens,
+            function (float $total, ItemOrcamento $item) {
+                return $total + $item->valor();
+            },
+            0
+        );
+    }
+
+    public function getValorImposto(): float
+    {
+        return $this->valorImposto;
     }
 
 
