@@ -1,36 +1,43 @@
 package main
 
-import "fmt"
-
-// structure declaration
-type CheckingAccount struct {
-	holder  string
-	agency  int
-	number  int
-	balance float64
-}
-
-func (c *CheckingAccount) Withdraw(valueToWithdraw float64) {
-	canWithdraw := valueToWithdraw > 0 && valueToWithdraw <= c.balance
-	if canWithdraw {
-		c.balance -= valueToWithdraw
-	}
-}
+import (
+	a "accounts"
+	"fmt"
+)
 
 func main() {
 	// structure instantiation
-	cezarAccount := CheckingAccount{
-		holder:  "Cezar",
-		agency:  123,
-		number:  456,
+	cezarClient := a.Holder{
+		Name:       "Cezar",
+		CPF:        "123.456.789-10",
+		Profession: "programmer",
 	}
-	anaAccount := CheckingAccount{"Ana", 123, 457, 0.0}
+	cezarAccount := a.CheckingAccount{
+		Holder: cezarClient,
+		Agency: 123,
+		Number: 456,
+	}
+
+	anaClient := a.Holder{
+		Name:       "Ana",
+		CPF:        "987.654.321-10",
+		Profession: "educator",
+	}
+	anaAccount := a.CheckingAccount{
+		Holder: anaClient,
+	}
 
 	// using pointer to structure
-	var joaoAccount *CheckingAccount
-	joaoAccount = new(CheckingAccount)
-	joaoAccount.holder = "João"
-	joaoAccount.agency = 321
+	var joaoClient *a.Holder
+	joaoClient = new(a.Holder)
+	joaoClient.Name = "João"
+	joaoClient.CPF = "987.654.321-11"
+	joaoClient.Profession = "student"
+
+	var joaoAccount *a.CheckingAccount
+	joaoAccount = new(a.CheckingAccount)
+	joaoAccount.Holder = *joaoClient
+	joaoAccount.Agency = 321
 
 	fmt.Println(cezarAccount)
 	fmt.Println(anaAccount)
@@ -38,9 +45,16 @@ func main() {
 	fmt.Println(*joaoAccount)
 
 	// method using pointer to structure
-	cezarAccount.balance = 1000.0
+	cezarAccount.Deposit(1000.0)
 	cezarAccount.Withdraw(500.0)
 	fmt.Println(cezarAccount)
 	cezarAccount.Withdraw(1500.0)
 	fmt.Println(cezarAccount)
+	cezarAccount.Deposit(500.0)
+	fmt.Println(cezarAccount)
+
+	cezarAccount.Transfer(&anaAccount, 500.0)
+	fmt.Println(cezarAccount)
+	fmt.Println(anaAccount)
+	fmt.Println(cezarAccount.Balance())
 }
