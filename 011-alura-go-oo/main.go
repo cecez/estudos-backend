@@ -5,6 +5,14 @@ import (
 	"fmt"
 )
 
+func Pay(account Payable, value float64) {
+	account.Withdraw(value)
+}
+
+type Payable interface {
+	Withdraw(value float64)
+}
+
 func main() {
 	// structure instantiation
 	cezarClient := a.Holder{
@@ -57,4 +65,18 @@ func main() {
 	fmt.Println(cezarAccount)
 	fmt.Println(anaAccount)
 	fmt.Println(cezarAccount.Balance())
+
+	// create a savingAccount
+	savingAccount := a.SavingAccount{
+		Holder: a.Holder{
+			Name:       "Cezar",
+			CPF:        "123.456.789-10",
+			Profession: "programmer",
+		},
+		Agency: 123,
+		Number: 456,
+	}
+	savingAccount.Deposit(1000.0)
+	Pay(&savingAccount, 500.0)
+	fmt.Println(savingAccount)
 }

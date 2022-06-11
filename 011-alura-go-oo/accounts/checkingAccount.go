@@ -5,8 +5,7 @@ package accounts
 // public fields or methods (upper case) are accessible from outside the structure
 type CheckingAccount struct {
 	Holder  Holder
-	Agency  int
-	Number  int
+	Agency, Number  int
 	balance float64
 }
 
