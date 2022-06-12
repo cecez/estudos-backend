@@ -1,0 +1,15 @@
+{
+    "name": "cezarcastrorosa/011-alura-design-patterns-em-php-padroes-comportamentais",
+    "autoload": {
+        "psr-4": {
+            "Cezarcastrorosa\\AluraDesignPatternsEmPhpPadroesComportamentais\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Cezar Rosa",
+            "email": "cecez86@gmail.com"
+        }
+    ],
+    "require": {}
+}

@@ -2,19 +2,12 @@
 
 namespace Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesComportamentais;
 
-use Exception;
+use Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesComportamentais\Taxes\Tax;
 
 class TaxCalculator
 {
-    /**
-     * @throws Exception
-     */
-    public function calculate(Budget $budget, string $taxName): float
+    public function calculate(Budget $budget, Tax $tax): float
     {
-        return match ($taxName) {
-            "ICMS" => $budget->value * 0.1,
-            "ISS" => $budget->value * 0.06,
-            default => throw new Exception("Imposto não encontrado"),
-        };
+        return $tax->calculateTax($budget);
     }
 }
