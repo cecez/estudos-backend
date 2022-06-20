@@ -23,3 +23,9 @@ student.name = 'João Pedro';
 // Removing properties:
 delete student.test;
 console.log(student);
+
+anotherStudent = student;
+anotherStudent.age = 9;
+console.log(student);
+console.log(anotherStudent);
+
