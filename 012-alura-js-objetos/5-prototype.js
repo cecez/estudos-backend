@@ -1,4 +1,4 @@
-// - property __proto__ list properties and methods of the object
+// - property __proto__ (visible on Google Chrome console) list properties and methods of the object
 // many of these methods were "inherited" from some prototype
 
 // a way to define a ""class""
