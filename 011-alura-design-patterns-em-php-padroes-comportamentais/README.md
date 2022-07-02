@@ -8,3 +8,9 @@
 
 ## State
 - useful when an object can have many behaviours, dependant from its state.
+
+## Command
+- constructor (dependencies) and execution in the same class.
+
+## Command Handler (Use cases, Application services)
+- separation between command (data) from execution (handler and its dependencies)
