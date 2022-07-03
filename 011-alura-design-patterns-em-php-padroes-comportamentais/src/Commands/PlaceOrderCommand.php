@@ -5,9 +5,9 @@ namespace Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesComportamentais\Command
 class PlaceOrderCommand
 {
     public function __construct(
-        private float $budgetValue,
-        private int $itensNumber,
-        private string $clientName
+        private readonly float $budgetValue,
+        private readonly int $itensNumber,
+        private readonly string $clientName
     ) {
     }
 

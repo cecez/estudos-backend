@@ -14,3 +14,7 @@
 
 ## Command Handler (Use cases, Application services)
 - separation between command (data) from execution (handler and its dependencies)
+- orchestrate tasks to be executed
+
+## Observer
+- pub/sub
