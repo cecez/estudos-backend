@@ -5,11 +5,18 @@
             "Cezarcastrorosa\\AluraDesignPatternsEmPhpPadroesComportamentais\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Cezarcastrorosa\\Tests\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "Cezar Rosa",
             "email": "cecez86@gmail.com"
         }
     ],
-    "require": {}
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    }
 }
