@@ -1,12 +1,25 @@
 {
   "name": "013-alura-nodejs-criando-sua-biblioteca",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "teste npm",
+  "main": "./cli.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cli": "node cli.js ./README.md",
+    "test": "jest ./tests"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "node-fetch": "^3.2.6"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@babel/preset-env": "^7.18.6",
+    "jest": "^28.1.2"
+  },
+  "bin": {
+    "013-alura-nodejs-criando-sua-biblioteca": "./cli.js"
+  }
 }
