@@ -1,6 +1,6 @@
 <?php
 
-namespace Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesComportamentais;
+namespace Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesEstruturais;
 
 class MoreThan500Reais extends Discount
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesComportamentais\Taxes;
+namespace Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesEstruturais\Taxes;
 
-use Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesComportamentais\Budget;
+use Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesEstruturais\Budget;
 
 class Icpp extends TaxBase
 {

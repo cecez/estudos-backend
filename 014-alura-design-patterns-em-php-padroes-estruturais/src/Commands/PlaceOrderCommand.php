@@ -1,6 +1,6 @@
 <?php
 
-namespace Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesComportamentais\Commands;
+namespace Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesEstruturais\Commands;
 
 class PlaceOrderCommand
 {

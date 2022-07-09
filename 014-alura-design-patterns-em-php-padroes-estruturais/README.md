@@ -1,3 +1,4 @@
 # Design Patterns (structural)
-## 
+## Adapter
+
 

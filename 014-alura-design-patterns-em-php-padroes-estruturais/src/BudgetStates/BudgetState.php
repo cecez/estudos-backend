@@ -1,8 +1,8 @@
 <?php
 
-namespace Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesComportamentais\BudgetStates;
+namespace Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesEstruturais\BudgetStates;
 
-use Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesComportamentais\Budget;
+use Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesEstruturais\Budget;
 
 abstract class BudgetState
 {

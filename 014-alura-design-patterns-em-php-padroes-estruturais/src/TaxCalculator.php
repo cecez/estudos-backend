@@ -1,8 +1,8 @@
 <?php
 
-namespace Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesComportamentais;
+namespace Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesEstruturais;
 
-use Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesComportamentais\Taxes\Tax;
+use Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesEstruturais\Taxes\Tax;
 
 class TaxCalculator
 {

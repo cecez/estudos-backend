@@ -1,8 +1,8 @@
 <?php
 
-namespace Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesComportamentais;
+namespace Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesEstruturais;
 
-use Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesComportamentais\BudgetStates\WaitingApproval;
+use Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesEstruturais\BudgetStates\WaitingApproval;
 
 class Budget
 {

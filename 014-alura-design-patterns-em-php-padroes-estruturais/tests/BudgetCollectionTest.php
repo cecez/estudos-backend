@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Cezarcastrorosa\Tests;
 
-use Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesComportamentais\Budget;
-use Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesComportamentais\BudgetCollection;
+use Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesEstruturais\Budget;
+use Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesEstruturais\BudgetCollection;
 use PHPUnit\Framework\TestCase;
 
 final class BudgetCollectionTest extends TestCase

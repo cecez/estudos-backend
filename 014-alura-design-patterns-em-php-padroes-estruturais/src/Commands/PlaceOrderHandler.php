@@ -1,10 +1,10 @@
 <?php
 
-namespace Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesComportamentais\Commands;
+namespace Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesEstruturais\Commands;
 
-use Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesComportamentais\Actions\Order\OrderAction;
-use Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesComportamentais\Budget;
-use Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesComportamentais\Order;
+use Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesEstruturais\Actions\Order\OrderAction;
+use Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesEstruturais\Budget;
+use Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesEstruturais\Order;
 
 class PlaceOrderHandler
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesComportamentais\Actions\Order;
+namespace Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesEstruturais\Actions\Order;
 
-use Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesComportamentais\Order;
+use Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesEstruturais\Order;
 
 class LogOrder implements OrderAction
 {
