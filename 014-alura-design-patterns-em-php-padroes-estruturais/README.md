@@ -3,5 +3,6 @@
 
 ## Bridge
 
+## Decorator
 
 

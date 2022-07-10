@@ -4,7 +4,7 @@ namespace Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesEstruturais\Taxes;
 
 use Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesEstruturais\Budget;
 
-class Icms implements Tax
+class Icms extends Tax
 {
     public function calculateTax(Budget $budget): float
     {
