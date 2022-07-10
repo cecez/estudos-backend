@@ -15,4 +15,9 @@ class Order
     {
         return "Client name: {$this->clientName}";
     }
+
+    public function clientName(): string
+    {
+        return $this->clientName;
+    }
 }
