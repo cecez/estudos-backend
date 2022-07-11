@@ -7,4 +7,8 @@
 
 ## Composite
 
+## Facade
+
+## Proxy
+
 
