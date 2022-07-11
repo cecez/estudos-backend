@@ -11,4 +11,6 @@
 
 ## Proxy
 
+## Flyweight
+
 
