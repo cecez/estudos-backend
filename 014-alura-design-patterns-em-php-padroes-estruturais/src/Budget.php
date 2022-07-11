@@ -4,15 +4,19 @@ namespace Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesEstruturais;
 
 use Cezarcastrorosa\AluraDesignPatternsEmPhpPadroesEstruturais\BudgetStates\WaitingApproval;
 
-class Budget
+class Budget implements Budgetable
 {
     public int $amountOfItems;
     public float $value;
+
+    /** @var BudgetItem[] */
+    private array $items;
     public BudgetStates\BudgetState $state;
 
     public function __construct()
     {
         $this->state = new WaitingApproval();
+        $this->items = [];
     }
 
     public function applyExtraDiscount(): void
@@ -33,5 +37,19 @@ class Budget
     public function finalize(): void
     {
         $this->state->finalize($this);
+    }
+
+    public function addItem(Budgetable $budgetItem): void
+    {
+        $this->items[] = $budgetItem;
+    }
+
+    public function value(): float
+    {
+        return array_reduce(
+            $this->items,
+            fn(float $acc, Budgetable $item) => $item->value() + $acc,
+            0
+        );
     }
 }
