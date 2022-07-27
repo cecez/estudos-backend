@@ -3,7 +3,10 @@
     "description": "Experimentando extensão php-ds",
     "type": "project",
     "require": {
-        "php-ds/php-ds": "^1.4"
+        "php-ds/php-ds": "^1.4",
+        "ext-pdo": "*",
+        "ext-curl": "*",
+        "ext-zip": "*"
     },
     "autoload": {
         "psr-4": {

@@ -1,0 +1,15 @@
+{
+  "autoload": {
+    "psr-4": {
+      "Cezarcastrorosa\\Curso017\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Cezarcastrorosa\\Tests\\Curso017\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9"
+  }
+}

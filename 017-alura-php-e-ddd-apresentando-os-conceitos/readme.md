@@ -1,0 +1,10 @@
+- Linguagem ubíqua
+  - Analistas do domínio e técnicos falarem a mesma "língua"
+- Invariante
+  - regra de negócio que deve ser sempre verdadeira para os objetos serem válidos
+- Aggregate
+  - Entidade que possui relacionamento com algo (ex: Aluno tem telefones)
+- Evento
+  - ação realizada
+- Contextos / bounded contexts
+  - subdivisão dentro do domínio
