@@ -1,0 +1,1 @@
+npm install nodemon@2.0.15 -D # instala pacote apenas para dev na versão especificada
