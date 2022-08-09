@@ -1,16 +1,7 @@
-const http = require("http");
+import app from "./src/app.js"
 
-const rotas = {
-  "/": "Raiz do projeto",
-  "/autor": "Dados do autor",
-  "/livro": "Dados do livro",
-};
+const porta = process.env.PORT || 3000;
 
-const servidor = http.createServer((requisicao, resposta) => {
-  resposta.writeHead(200, "OK", { "Content-Type": "text/plain" });
-  resposta.end(rotas[requisicao.url]);
-});
-
-servidor.listen(3000, () => {
-  console.log("Escutando ...");
+app.listen(3000, () => {
+  console.log("Express escutando ...");
 });
