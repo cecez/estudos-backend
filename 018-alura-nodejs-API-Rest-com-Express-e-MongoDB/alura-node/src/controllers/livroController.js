@@ -1,21 +1,27 @@
 import livros from "../models/Livro.js";
 
 class LivroController {
-  static listarLivros = (requisicao, resposta) => {
-    livros.find((error, livros) => {
-      resposta.status(200).json(livros);
-    });
+  static listarLivros = (_, resposta) => {
+    livros
+      .find()
+      .populate("autor")
+      .exec((_, livros) => {
+        resposta.status(200).json(livros);
+      });
   };
 
   static listaLivro = (requisicao, resposta) => {
     const id = requisicao.params.id;
-    livros.findById(id, (erro, livros) => {
-      if (erro) {
-        resposta.status(400).send(erro);
-      } else {
-        resposta.status(200).json(livros);
-      }
-    });
+    livros
+      .findById(id)
+      .populate("autor", "nome")
+      .exec((erro, livros) => {
+        if (erro) {
+          resposta.status(400).send(erro);
+        } else {
+          resposta.status(200).json(livros);
+        }
+      });
   };
 
   static cadastraLivro = (requisicao, resposta) => {
@@ -48,6 +54,19 @@ class LivroController {
       } else {
         resposta.status(200).send("Livro removido com sucesso");
       }
+    });
+  };
+
+  static listaLivrosPorEditora = (requisicao, resposta) => {
+    const editora = requisicao.query.editora;
+    console.log(editora);
+    livros.find({ editora: editora }, {}, (erro, retorno) => {
+      if (erro || retorno == null) {
+        resposta.status(500).send(erro || "Nenhum livro encontrado");
+        return;
+      }
+
+      resposta.status(200).send(retorno);
     });
   };
 }
