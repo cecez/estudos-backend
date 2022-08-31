@@ -32,6 +32,10 @@ module.exports = {
     res.json(usuarios);
   },
 
+  login: (requisicao, resposta) => {
+    resposta.status(204).send();
+  },
+
   deleta: async (req, res) => {
     const usuario = await Usuario.buscaPorId(req.params.id);
     try {
