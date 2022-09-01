@@ -1,8 +1,10 @@
-const postsControlador = require('./posts-controlador');
+const postsControlador = require("./posts-controlador");
+const passport = require("passport");
+const { middlewareAutenticacao } = require("../usuarios");
 
-module.exports = app => {
+module.exports = (app) => {
   app
-    .route('/post')
+    .route("/post")
     .get(postsControlador.lista)
-    .post(postsControlador.adiciona);
+    .post(middlewareAutenticacao.bearer, postsControlador.adiciona);
 };
