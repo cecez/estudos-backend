@@ -7,6 +7,10 @@ module.exports = (app) => {
     .post(middlewareAutenticacao.local, usuariosControlador.login);
 
   app
+    .route("/logout")
+    .get(middlewareAutenticacao.bearer, usuariosControlador.logout);
+
+  app
     .route("/usuario")
     .post(usuariosControlador.adiciona)
     .get(usuariosControlador.lista);

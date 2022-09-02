@@ -5,10 +5,18 @@ const Usuario = require("./usuarios-modelo");
 const { InvalidArgumentError } = require("../erros");
 const bcrypt = require("bcrypt");
 const JWT = require("jsonwebtoken");
+const blacklist = require("../../redis/manipula-blacklist");
 
 function verificaUsuario(usuario) {
   if (!usuario) {
     throw new InvalidArgumentError("Usuário inválido.");
+  }
+}
+
+async function verificaTokenNaBlacklist(token) {
+  const tokenNaBlacklist = await blacklist.existe(token);
+  if (tokenNaBlacklist) {
+    throw new JWT.JsonWebTokenError("Logout já realizado para este token.");
   }
 }
 
@@ -42,9 +50,10 @@ passport.use(
 passport.use(
   new BearerStrategy(async (token, done) => {
     try {
+      await verificaTokenNaBlacklist(token);
       const payload = JWT.verify(token, process.env.CHAVE_JWT);
       const usuario = await Usuario.buscaPorId(payload.id);
-      done(null, usuario);
+      done(null, usuario, { token: token });
     } catch (erro) {
       done(erro);
     }

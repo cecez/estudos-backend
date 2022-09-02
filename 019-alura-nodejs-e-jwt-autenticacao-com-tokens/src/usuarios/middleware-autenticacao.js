@@ -33,6 +33,12 @@ module.exports = {
           return resposta.status(401).json({ erro: erro.message });
         }
 
+        if (erro && erro.name === "TokenExpiredError") {
+          return resposta
+            .status(401)
+            .json({ erro: erro.message, expiradoEm: erro.expiredAt });
+        }
+
         if (erro) {
           return resposta.status(500).json({ erro: erro.message });
         }
@@ -41,6 +47,7 @@ module.exports = {
           return resposta.status(401).json();
         }
 
+        requisicao.token = info.token;
         requisicao.user = usuario;
         return next();
       }
