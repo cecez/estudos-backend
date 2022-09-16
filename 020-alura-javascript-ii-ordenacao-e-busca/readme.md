@@ -1,1 +1,3 @@
 - mergesort
+- quicksort (pivo, particoes)
+- busca binária
