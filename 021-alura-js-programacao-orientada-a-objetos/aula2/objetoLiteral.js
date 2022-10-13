@@ -14,3 +14,15 @@ const exibir = function () {
 
 const exibirNome = exibir.bind(user);
 exibirNome();
+
+const admin = {
+  nome: "Adminer",
+  role: "admin",
+  criarCurso() {
+    console.log("Curso criado.")
+  }
+};
+
+Object.setPrototypeOf(admin, user);
+admin.criarCurso();
+admin.info();
