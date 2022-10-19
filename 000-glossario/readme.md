@@ -1,13 +1,16 @@
 **Actions**
 - Classes simples para realizar uma ação.
 
+**Coesão**
+- união harmônica entre uma coisa e outra.
+
 **DTO - Data Transfer Object**
 - estruturar dados não estruturados (arrays genericos);
 - Mais tipagem;
 - Geralmente imutáveis.
 
 **gRPC vs. REST**
-https://www.toptal.com/grpc/grpc-vs-rest-api
+- https://www.toptal.com/grpc/grpc-vs-rest-api
 
 **Services**
 - Ajuda e limpar os controllers.
